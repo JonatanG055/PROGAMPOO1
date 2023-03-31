@@ -1,0 +1,28 @@
+class Usuario:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.amigos = []
+
+    def agregar_amigo(self, amigo):
+        self.amigos.append(amigo)
+
+  
+
+    def ver_publicaciones(self):
+        for amigo in self.amigos:
+            print(f"{amigo.nombre} ha publicado: {amigo.publicacion}")
+
+class Amigo(Usuario):
+    def __init__(self, nombre, publicacion):
+        super().__init__(nombre)
+        self.publicacion = publicacion
+
+class Contacto(Usuario):
+    pass
+usuario1 = Usuario("Juan")
+amigo1 = Amigo("Pedro", "Hola mundo!")
+amigo2 = Amigo("María", "Mi primer post.")
+usuario1.agregar_amigo(amigo1)
+usuario1.agregar_amigo(amigo2)
+
+usuario1.ver_publicaciones()
